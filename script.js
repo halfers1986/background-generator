@@ -2,7 +2,9 @@ var css = document.querySelector("h3");
 var color1 = document.querySelector(".color1");
 var color2 = document.querySelector(".color2");
 var body = document.getElementById("gradient");
-var button = document.querySelector("button")
+var button = document.querySelector("button");
+var elem = document.querySelector("body");
+var initValue = window.getComputedStyle(elem, null).getPropertyValue("background");
 
 function getRandomColor() {
   var letters = '0123456789ABCDEF';
@@ -38,10 +40,16 @@ color2.addEventListener("input", setGradient);
 
 button.addEventListener("click", setRandoms);
 
+setRandoms();
 
-var elem = document.querySelector("body");
-var initValue = window.getComputedStyle(elem, null).getPropertyValue("background");
-document.querySelector("h3").innerHTML = initValue;
+
+//||Original attempt to have the color information display at page load.||
+//||It works, but with a lot of uneccessary fluff (additional unimportant settings shown.)||
+//||In the end was simpler to have a random gradient selected on page load and use Andrei's code.||
+
+// var elem = document.querySelector("body");
+// var initValue = window.getComputedStyle(elem, null).getPropertyValue("background");
+// document.querySelector("h3").innerHTML = initValue;
 
 
 
